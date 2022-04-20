@@ -1,6 +1,9 @@
 <script>
   import NavBrand from "./NavBrand.svelte";
   import NavLinks from "./NavLinks.svelte";
+  import Sidebar from "./Sidebar.svelte";
+  import Hamburger from "./Hamburger.svelte";
+  let sidebar_show = false;
 </script>
 
 <style>
@@ -12,6 +15,10 @@
 <nav class="bg-[#222] text-white/90 grid grid-cols-2 items-center h-[100px] w-[100vw]">
   <NavBrand />
   <NavLinks />
+  <button on:click={() => sidebar_show = !sidebar_show}>
+    <Hamburger />
+  </button>
+  <Sidebar bind:show={sidebar_show} />
 </nav>
 <main>
   <div class="container mx-auto ">
